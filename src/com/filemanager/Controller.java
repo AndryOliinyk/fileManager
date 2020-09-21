@@ -122,7 +122,6 @@ public class Controller {
             for (Path path: filesList){
                 filesMap.put(path.getFileName().toString(), path);
             }
-            System.out.println("ttt");
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Target and Files folders can't be empty");
             alert.setHeaderText("Invalid input");
