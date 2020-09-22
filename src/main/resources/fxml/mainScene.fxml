@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@../styles/mainScene.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.filemanager.controller.PrimaryStageController">
+   <left>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <CheckBox fx:id="filesSubfolders" layoutX="17.0" layoutY="155.0" mnemonicParsing="false" onAction="#selectFileSolders" text="Include subfolder" />
+            <Button fx:id="filesFolder" layoutX="259.0" layoutY="114.0" mnemonicParsing="false" onAction="#selectFilesDirectory" text="..." />
+            <TextField fx:id="filesFolderField" layoutX="17.0" layoutY="114.0" prefHeight="26.0" prefWidth="243.0" />
+            <Label layoutX="17.0" layoutY="98.0" text="Files folder:" />
+            <Button fx:id="targetFolder" layoutX="259.0" layoutY="30.0" mnemonicParsing="false" onAction="#selectTargetFolder" text="..." />
+            <TextField fx:id="targetFolderField" layoutX="17.0" layoutY="30.0" prefHeight="26.0" prefWidth="243.0" />
+            <Label layoutX="17.0" layoutY="14.0" text="Target folder:" />
+            <Label layoutX="17.0" layoutY="196.0" text="Minimum percentage of match:" />
+            <CheckBox fx:id="targetSubfolders" layoutX="17.0" layoutY="64.0" mnemonicParsing="false" onAction="#selectTargetSolders" text="Include subfolder" />
+            <TextField fx:id="percentageMin" layoutX="249.0" layoutY="191.0" onAction="#setPercentageMin" onInputMethodTextChanged="#setPercentageMin" prefHeight="26.0" prefWidth="41.0" text="10" />
+            <Button fx:id="sort" layoutX="-1.0" layoutY="261.0" mnemonicParsing="false" onAction="#sort" prefHeight="40.0" prefWidth="310.0" text="Sort" textAlignment="CENTER">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <ProgressBar fx:id="progressBar" layoutX="11.0" layoutY="225.0" prefHeight="20.0" prefWidth="289.0" progress="0.0" visible="false" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ListView fx:id="listView" editable="true" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#handleMouseClick" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2147483647" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
