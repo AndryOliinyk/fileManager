@@ -1,16 +1,21 @@
-package com.filemanager;
+package com.filemanager.service;
 
-
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static java.lang.String.format;
 
-public class FileSimilarity {
+
+/**
+ *   Compare two string messages and provide percent of matching
+ *
+ * @author Andrii Oliinuk
+ */
+public class NameComparator {
     /**
      * Calculates the similarity (a number within 0 and 1) between two strings.
      */
-    public double similarity(String s1, String s2) {
+    private double similarity(String s1, String s2) {
         String longer = s1, shorter = s2;
         if (s1.length() < s2.length()) {
             longer = s2;
@@ -23,11 +28,14 @@ public class FileSimilarity {
         return (longerLength - editDistance(longer, shorter)) / (double) longerLength;
     }
 
-    public Optional<String> directorySorter(List<String> directoriesName, String fileName) {
+    public Optional<String> directorySorter(Set<String> directoriesName, String fileName, int compareMin) {
         String directoryName = null;
         double maxRate = 0;
         for (String directory : directoriesName) {
             double rate = similarity(directory, fileName);
+            if (compareMin > (int) (rate * 100)) {
+                continue;
+            }
             if (Double.compare(maxRate, rate) == 0) {
                 return Optional.of(format("Multiple options: 1) %s 2) %s", directoryName, directory));
             }
