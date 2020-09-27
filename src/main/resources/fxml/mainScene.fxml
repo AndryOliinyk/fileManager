@@ -26,7 +26,7 @@
             <Label layoutX="17.0" layoutY="14.0" text="Target folder:" />
             <Label layoutX="17.0" layoutY="196.0" text="Minimum percentage of match:" />
             <CheckBox fx:id="targetSubfolders" layoutX="17.0" layoutY="64.0" mnemonicParsing="false" onAction="#selectTargetSolders" text="Include subfolder" />
-            <TextField fx:id="percentageMin" layoutX="249.0" layoutY="191.0" onAction="#setPercentageMin" onInputMethodTextChanged="#setPercentageMin" prefHeight="26.0" prefWidth="41.0" text="10" />
+            <TextField fx:id="percentageMin" layoutX="249.0" layoutY="191.0" onAction="#setPercentageMin" onInputMethodTextChanged="#setPercentageMin" prefHeight="26.0" prefWidth="41.0" text="25" />
             <Button fx:id="sort" layoutX="-1.0" layoutY="261.0" mnemonicParsing="false" onAction="#sort" prefHeight="40.0" prefWidth="310.0" text="Sort" textAlignment="CENTER">
                <font>
                   <Font size="21.0" />
